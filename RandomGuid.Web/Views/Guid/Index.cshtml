@@ -1,0 +1,65 @@
+﻿@model IEnumerable<GuidViewModel>
+
+@*@{
+    string color = "";
+    switch ()
+    {
+        case Status.Active: color = "green"; break;
+        case Status.Ready: color = "oranage"; break;
+        case Status.Saved: color = "blue"; break;
+        case Status.Rejected: color = "red"; break;
+
+    }
+}
+*@
+@if (Model == null || !Model.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Id)
+                   
+                    <th class="text-center">Actions</th>
+                    <th class="text-center">Status</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <span>There is no data</span>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead class="bg-light">
+                <tr>
+
+                    <th class="text-center">Id</th>
+
+                    <th class="text-center">Status</th>
+
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                         <td>
+                            @Html.DisplayFor(modelItem => item.StatusId)
+                        </td>
+                        <td class="d-flex justify-content-center">
+                            @Html.ActionLink("Details", "Edit", "Guid", new { id = item.Id }, new { @class = "btn btn-outline-primary waves-effect btn-sm shadow-none" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

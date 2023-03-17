@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>dotnet-Guidrandom.Background-C8E47CE7-D7BF-4118-AFB6-E308C8CF80F7</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DNTScheduler.Core" Version="1.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.22" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RandomGuid.Web\RandomGuid.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="637964385545781011.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
